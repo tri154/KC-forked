@@ -89,12 +89,12 @@ if __name__ == "__main__":
   if(args.no_lazy):
     # call first
     _ = AppModel.model()
-  
+
   if(args.web):
-    # NOTE: here to open a direct web interface 
+    # NOTE: here to open a direct web interface
     if(args.flask_config is not None):
       with io.open(args.flask_config, "r") as conf:
-        webconfig = yaml.load(conf)
+        webconfig = yaml.safe_load(conf)
     else:
       webconfig = {}
     # register the blueprint binded to the model
